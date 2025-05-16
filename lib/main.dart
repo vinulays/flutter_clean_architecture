@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_clean_architecture/core/dependency_injection/service_locator.dart';
 import 'package:logging/logging.dart';
 
 void main() async {
   _setupLogging();
-  await dotenv.load(fileName: ".env");
+  await initDependencies();
+
   runApp(const MyApp());
 }
 
