@@ -3,6 +3,7 @@ import 'package:flutter_clean_architecture/features/articles/data/data_sources/a
 import 'package:flutter_clean_architecture/features/articles/data/repositories/article_repository_impl.dart';
 import 'package:flutter_clean_architecture/features/articles/domain/repositories/abstract_article_repository.dart';
 import 'package:flutter_clean_architecture/features/articles/domain/usecases/get_articles_usecase.dart';
+import 'package:flutter_clean_architecture/features/articles/presentation/bloc/articles/articles_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 
@@ -18,4 +19,6 @@ Future<void> initDependencies() async {
   );
 
   sl.registerLazySingleton(() => GetArticlesUsecase(sl()));
+
+  sl.registerFactory(() => ArticlesBloc(sl<GetArticlesUsecase>()));
 }
