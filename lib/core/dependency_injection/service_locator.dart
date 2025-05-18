@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_clean_architecture/core/services/url_launcher_service.dart';
 import 'package:flutter_clean_architecture/features/articles/data/data_sources/abstract_article_api.dart';
 import 'package:flutter_clean_architecture/features/articles/data/data_sources/article_api_impl.dart';
 import 'package:flutter_clean_architecture/features/articles/data/repositories/article_repository_impl.dart';
@@ -22,4 +23,7 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton(() => GetArticlesUsecase(sl()));
 
   sl.registerFactory(() => ArticlesBloc(sl<GetArticlesUsecase>()));
+  sl.registerLazySingleton<AbstractUrlLauncherService>(
+    () => UrlLauncherServiceImpl(),
+  );
 }

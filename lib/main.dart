@@ -4,6 +4,7 @@ import 'package:flutter_clean_architecture/features/articles/presentation/pages/
 import 'package:logging/logging.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   _setupLogging();
   await initDependencies();
 
