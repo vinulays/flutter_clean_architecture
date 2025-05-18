@@ -21,7 +21,7 @@ class ArticleApiImpl implements AbstractArticleApi {
     }
 
     try {
-      final response = await dio.get(url, queryParameters: {'api_key': key});
+      final response = await dio.get(url, queryParameters: {'api-key': key});
 
       final results = response.data['results'] as List;
       return results.map((json) => ArticleModel.fromJson(json)).toList();

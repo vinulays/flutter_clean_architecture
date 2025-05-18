@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/dependency_injection/service_locator.dart';
+import 'package:flutter_clean_architecture/features/articles/presentation/pages/articles_page.dart';
 import 'package:logging/logging.dart';
 
 void main() async {
@@ -16,10 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Center(child: Text("HOME")),
+      home: ArticlesPage(),
     );
   }
 }
